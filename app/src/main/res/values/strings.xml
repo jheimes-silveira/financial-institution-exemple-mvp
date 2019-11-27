@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Instituição Financeira</string>
+    <string name="financial_institution">Instituições financeiras</string>
+    <string name="search">Pesquisar</string>
+    <string name="more_used">Mais utilizadas</string>
+    <string name="others">Outras instituições</string>
+</resources>

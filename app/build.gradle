@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+ext.versionMajor = 1
+ext.versionMinor = 0
+ext.versionPatch = 0
+
+ext.versionClassifier = null
+ext.isSnapshot = false
+ext.minimumSdkVersion = 21
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "br.com.jheimesilveira.instituicaofinanceira"
+        targetSdkVersion 29
+        minSdkVersion project.ext.minimumSdkVersion
+        versionCode generateVersionCode() // 190010203
+        versionName generateVersionName() // 1.2.3-SNAPSHOT
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://private-anon-e426c9e6b0-tqiandroid.apiary-mock.com\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://private-anon-e426c9e6b0-tqiandroid.apiary-mock.com\"")
+        }
+    }
+}
+
+dependencies {
+    // Google Gson
+    implementation "com.google.code.gson:gson:2.8.5"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.6.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+
+    // Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:3.8.0"
+
+    // Google Material
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // Animações
+    implementation "com.airbnb.android:lottie:2.8.0"
+
+    // Carregar Imagens
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    //Material SearchView
+    implementation 'br.com.mauker.materialsearchview:materialsearchview:1.2.3'
+
+    // Sectioned RecyclerView Adapter
+    implementation 'com.github.siwarats:recyclerview-itemdecoration:2.0.0'
+
+    // Testes
+    testImplementation "junit:junit:4.12"
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+private Integer generateVersionCode() {
+    return ext.minimumSdkVersion * 10000000 + ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
+}
+
+private String generateVersionName() {
+    String versionName = "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+    if (ext.versionClassifier == null && ext.isSnapshot) {
+        ext.versionClassifier = "SNAPSHOT"
+    }
+
+    if (ext.versionClassifier != null) {
+        versionName += "-" + ext.versionClassifier
+    }
+    return versionName
+}
