@@ -1,4 +1,4 @@
-#Demostrativo de estrutura de projeto
+# Demostrativo de estrutura de projeto
 
 Para esse simples projeto foi trabalhado certos conseitos de arquitetura para se usar como modelo, a aplicação esta com poucas pastas, mas conforme o aplicativo possa crescer. a estrutura de pastas em certos pacotes faz com que fiquem enxutos e organizados, e a navegação no projeto permanece nítida e suave.
 
