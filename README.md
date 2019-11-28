@@ -7,14 +7,14 @@ Por exemplo, quando estamos trabalhando em um recurso, geralmente permanecemos n
 # Estrutura de Pastas
 
             -data/
-			----model
-			----network
-			----service
+		----model
+		----network
+		----service
             -shared/
-			----views
+		----views
             -ui/
-			----login
-			----profile
+		----login
+		----profile
             -util/
             ...
 1.data
