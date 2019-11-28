@@ -28,3 +28,7 @@ O pacote da 'ui' (interface do usuário) é responsável por manter todas as cla
 
 2.util
 O pacote util é usado para conter qualquer tipo de classe Helper ou classe Utilitaria que podemos usar para coisas como criação de caixa de diálogo, criação de Snackbar, métricas de exibição, verificações de conectividade, guias personalizadas ou qualquer outra forma de tarefa que se enquadre em uma classe de utilitário.
+
+# Arquitetura limpa em MVP
+
+Esta amostra se baseia nos princípios da arquitetura Mvp. adicionando uma camada de domínio entre a camada de apresentação e os repositórios:
